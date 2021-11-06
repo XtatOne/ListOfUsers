@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Пользователь</title>
+</head>
+<body>
+    <h3>Пользователь</h3>
+    <table>
+        <tbody>
+            <tr>
+                <td>Имя: </td>
+                <td th:text="${user.getName()}"></td>
+            </tr>
+            <tr>
+                <td>Фамилия: </td>
+                <td th:text="${user.getSurname()}"></td>
+            </tr>
+            <tr>
+                <td>Место работы: </td>
+                <td th:text="${user.getDepartment()}"></td>
+            </tr>
+            <tr>
+                <td>Дополнительно: </td>
+                <td th:text="${user.getUserDetails().getDetails()}"></td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <div sec:authorize="hasRole('HR')">
+    <form th:action="@{/list/edit/{id}(id=${user.getId()})}">
+        <input type="submit" value="Изменить данные пользователя"/>
+    </form>
+    <br>
+    <form th:method="DELETE" th:action="@{/list/users/{id}(id=${user.getId()})}">
+        <input type="submit" value="Удалить пользователя"/>
+    </form>
+    </div>
+</body>
+</html>

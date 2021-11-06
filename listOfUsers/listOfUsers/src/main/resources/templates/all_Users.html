@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Пользователи</title>
+</head>
+<body>
+    <h3>Список пользователей:</h3>
+    <table>
+        <tbody>
+            <div th:each="users : ${allUsers}">
+                <tr>
+                    <td>
+                        <a th:href="@{/list/users/{id}(id=${users.getId()})}" th:text="${users.getSurname()} + ' ' + ${users.getName()}"></a>
+                    </td>
+                </tr>
+            </div>
+        </tbody>
+    </table>
+    <br>
+    <div sec:authorize="hasRole('HR')">
+    <form th:action="@{/list/new}">
+        <input type="submit" value="Добавить нового пользователя"/>
+    </form>
+    </div>
+</body>
+</html>
