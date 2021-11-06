@@ -94,7 +94,7 @@ public class UsersController {
 
             model.addAttribute("user",          user);
             model.addAttribute("userDetails",   user.getUserDetails());
-
+            //
         }
 
     }
