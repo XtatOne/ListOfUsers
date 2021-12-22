@@ -23,8 +23,12 @@
                 <td th:text="${user.getDepartment()}"></td>
             </tr>
             <tr>
+                <td>Зарплата:</td>
+                <td th:text="${user.getSalary()}"></td>
+            </tr>
+            <tr>
                 <td>Дополнительно: </td>
-                <td th:text="${user.getUserDetails().getDetails()}"></td>
+                <td th:text="${userDetails.getDetails()}"></td>
             </tr>
         </tbody>
     </table>

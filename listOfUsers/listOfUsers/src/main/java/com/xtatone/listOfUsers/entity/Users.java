@@ -24,6 +24,9 @@ public class Users {
     @JoinColumn(name = "user_details_id")
     private UserDetails userDetails;
 
+    @Column(name = "salary")
+    private Integer salary;
+
     public Users() {
     }
 
@@ -73,5 +76,13 @@ public class Users {
 
     public void setUserDetails(UserDetails userDetails) {
         this.userDetails = userDetails;
+    }
+
+    public Integer getSalary() {
+        return salary;
+    }
+
+    public void setSalary(int salary) {
+        this.salary = salary;
     }
 }
