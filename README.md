@@ -2,8 +2,4 @@
 
 Данный проект используется мной для изучения таких областей как:
 
-Spring Boot
-Spring MVC
-Hibernate
-Spring AOP
-Spring Security
+Spring Boot, Spring MVC, Hibernate, Spring AOP, Spring Security
