@@ -19,4 +19,4 @@ public interface UsersRepository extends JpaRepository<Users, Integer> {
     int getAvgSalary();
 
 }
-//    int id, String name, String surname, String department, UserDetails userDetails
+qwe
