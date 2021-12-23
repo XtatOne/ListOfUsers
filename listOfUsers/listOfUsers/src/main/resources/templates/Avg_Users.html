@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Средняя з.п.</title>
+</head>
+<body>
+<h3>Список пользователей c зарплатой выше средней</h3>
+<h4 th:text="${avgSalary}">Средняя зп</h4>
+<table>
+    <tbody>
+    <div th:each="avgUserName : ${agvSalaryUsersNames}">
+        <tr>
+            <td>
+                <a th:href="@{/list/users/{id}(id=${avgUserName.getId()})}"
+                   th:text="${avgUserName.getSurname()} + ' '
+                   + ${avgUserName.getName()} + ' - '
+                   + ${avgUserName.getSalary()}"></a>
+            </td>
+        </tr>
+    </div>
+    </tbody>
+</table>
+<br>
+</body>
+</html>

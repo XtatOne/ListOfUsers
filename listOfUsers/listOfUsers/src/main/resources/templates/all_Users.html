@@ -10,10 +10,10 @@
     <h3>Список пользователей:</h3>
     <table>
         <tbody>
-            <div th:each="users : ${allUsers}">
+            <div th:each="user : ${allUsers}">
                 <tr>
                     <td>
-                        <a th:href="@{/list/users/{id}(id=${users.getId()})}" th:text="${users.getSurname()} + ' ' + ${users.getName()}"></a>
+                        <a th:href="@{/list/user/{id}(id=${user.getId()})}" th:text="${user.getSurname()} + ' ' + ${user.getName()}"></a>
                     </td>
                 </tr>
             </div>
@@ -23,6 +23,10 @@
     <div sec:authorize="hasRole('HR')">
     <form th:action="@{/list/new}">
         <input type="submit" value="Добавить нового пользователя"/>
+    </form>
+    <br>
+    <form th:action="@{/list/avg_salary}">
+        <input type="submit" value="Пользователи с з.п. выше средней"/>
     </form>
     </div>
 </body>

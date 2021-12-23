@@ -34,4 +34,13 @@ public class UsersServiceImpl implements UsersService {
         userRepository.deleteById(id);
     }
 
+    @Override
+    public List<Users> getUsersWithAvgSalary() {
+        return userRepository.getUsersWithAvgSalary();
+    }
+
+    @Override
+    public int getAvgSalary() {
+        return userRepository.getAvgSalary();
+    }
 }

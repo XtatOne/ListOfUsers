@@ -30,12 +30,15 @@ public class Users {
     public Users() {
     }
 
-    public Users(int id, String name, String surname, String department, UserDetails userDetails) {
-        this.id = id;
-        this.name = name;
-        this.surname = surname;
-        this.department = department;
-        this.userDetails = userDetails;
+    public Users(int id, String name, String surname, String department, UserDetails userDetails, Integer salary) {
+
+        this.id             = id;
+        this.name           = name;
+        this.surname        = surname;
+        this.department     = department;
+        this.userDetails    = userDetails;
+        this.salary         = salary;
+
     }
 
     public int getId() {

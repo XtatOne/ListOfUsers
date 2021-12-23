@@ -7,12 +7,16 @@ import java.util.Optional;
 
 public interface UsersService {
 
-    public List<Users> getAllUsers();
+    List<Users> getAllUsers();
 
-    public Optional<Users> getUser(int id);
+    Optional<Users> getUser(int id);
 
-    public void saveUser(Users users);
+    void saveUser(Users users);
 
-    public void deleteUser(int id);
+    void deleteUser(int id);
+
+    List<Users> getUsersWithAvgSalary();
+
+    int getAvgSalary();
 
 }

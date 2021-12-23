@@ -31,7 +31,7 @@ public class UsersController {
     @GetMapping("/users/{id}")
     public String getUser(@PathVariable("id") int id, Model model) {
 
-        getUserwithServer(id, model);
+        getUserWithServer(id, model);
 
         return "User";
 
@@ -60,7 +60,7 @@ public class UsersController {
     @GetMapping("/edit/{id}")
     public String showEditForm(@PathVariable int id, Model model) {
 
-        getUserwithServer(id, model);
+        getUserWithServer(id, model);
 
         return "edit_User";
 
@@ -84,7 +84,19 @@ public class UsersController {
 
     }
 
-    private void getUserwithServer(int id, Model model) {
+    @GetMapping("/avg_salary")
+    public String getUserWithAvgSalary(Model model) {
+
+        List<Users> agvSalaryUsersNames = usersService.getUsersWithAvgSalary();
+        int avgSalary                   = usersService.getAvgSalary();
+
+        model.addAttribute("agvSalaryUsersNames",   agvSalaryUsersNames);
+        model.addAttribute("avgSalary",             "Средняя зарплата - " + avgSalary);
+
+        return "Avg_Users";
+    }
+
+    private void getUserWithServer(int id, Model model) {
 
         Optional<Users> optionalUser = usersService.getUser(id);
 
